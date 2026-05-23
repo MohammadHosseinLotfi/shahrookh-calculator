@@ -1,0 +1,432 @@
+/* ═══════════════════════════════════════════════════════════════
+   Shahrokh Calculator — Admin Styles
+   راست‌چین، مدرن، سبک
+═══════════════════════════════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --sca-primary:       #1e40af;
+  --sca-primary-light: #dbeafe;
+  --sca-primary-dark:  #1e3a8a;
+  --sca-accent:        #16a34a;
+  --sca-accent-light:  #dcfce7;
+  --sca-danger:        #dc2626;
+  --sca-danger-light:  #fee2e2;
+  --sca-warning:       #d97706;
+  --sca-warning-light: #fef3c7;
+  --sca-text:          #1e293b;
+  --sca-text-muted:    #64748b;
+  --sca-surface:       #ffffff;
+  --sca-surface-2:     #f8fafc;
+  --sca-border:        #e2e8f0;
+  --sca-radius:        10px;
+  --sca-radius-sm:     6px;
+  --sca-shadow:        0 2px 12px rgba(30,64,175,0.07);
+  --sca-transition:    0.18s cubic-bezier(0.16,1,0.3,1);
+  --sca-font:          'Vazirmatn', Tahoma, sans-serif;
+}
+
+/* ─── Reset ─────────────────────────────────────────────────── */
+#sc-admin-wrap *, #sc-admin-wrap *::before, #sc-admin-wrap *::after {
+  box-sizing: border-box;
+}
+
+/* ─── Wrapper اصلی ──────────────────────────────────────────── */
+#sc-admin-wrap {
+  font-family: var(--sca-font);
+  direction:   rtl;
+  color:       var(--sca-text);
+  max-width:   1100px;
+  padding:     1.5rem 1rem 3rem;
+}
+
+/* ─── Page Header ────────────────────────────────────────────── */
+.sca-page-header {
+  display:         flex;
+  align-items:     center;
+  justify-content: space-between;
+  margin-bottom:   1.5rem;
+  flex-wrap:       wrap;
+  gap:             .75rem;
+}
+.sca-page-title {
+  font-size:   1.4rem;
+  font-weight: 700;
+  color:       var(--sca-text);
+  margin:      0;
+}
+.sca-page-title span {
+  font-size:   .9rem;
+  font-weight: 400;
+  color:       var(--sca-text-muted);
+  margin-right: .5rem;
+}
+
+/* ─── دکمه‌ها ────────────────────────────────────────────────── */
+.sca-btn {
+  display:      inline-flex;
+  align-items:  center;
+  gap:          .35rem;
+  padding:      .5rem 1.1rem;
+  border-radius:var(--sca-radius-sm);
+  font-family:  var(--sca-font);
+  font-size:    .875rem;
+  font-weight:  600;
+  border:       none;
+  cursor:       pointer;
+  transition:   all var(--sca-transition);
+  line-height:  1;
+}
+.sca-btn--primary   { background: var(--sca-primary); color: #fff; }
+.sca-btn--primary:hover   { background: var(--sca-primary-dark); }
+.sca-btn--success   { background: var(--sca-accent); color: #fff; }
+.sca-btn--success:hover   { background: #15803d; }
+.sca-btn--danger    { background: var(--sca-danger-light); color: var(--sca-danger); }
+.sca-btn--danger:hover    { background: var(--sca-danger); color: #fff; }
+.sca-btn--ghost     { background: var(--sca-surface-2); color: var(--sca-text); border: 1px solid var(--sca-border); }
+.sca-btn--ghost:hover     { background: var(--sca-border); }
+.sca-btn--sm  { padding: .35rem .75rem; font-size: .8rem; }
+.sca-btn:disabled { opacity: .55; cursor: not-allowed; }
+.sca-btn svg  { width: 15px; height: 15px; flex-shrink: 0; }
+
+/* ─── Card ───────────────────────────────────────────────────── */
+.sca-card {
+  background:    var(--sca-surface);
+  border:        1px solid var(--sca-border);
+  border-radius: var(--sca-radius);
+  box-shadow:    var(--sca-shadow);
+  overflow:      hidden;
+}
+.sca-card__head {
+  padding:         1rem 1.25rem;
+  border-bottom:   1px solid var(--sca-border);
+  display:         flex;
+  align-items:     center;
+  justify-content: space-between;
+  gap:             .75rem;
+  background:      var(--sca-surface-2);
+}
+.sca-card__head h3 { font-size: 1rem; font-weight: 600; margin: 0; }
+.sca-card__body    { padding: 1.25rem; }
+
+/* ─── Grid دو‌ستونه (مراحل) ─────────────────────────────────── */
+.sca-steps-layout {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 1.25rem;
+  align-items: start;
+}
+@media (max-width: 900px) {
+  .sca-steps-layout { grid-template-columns: 1fr; }
+}
+
+/* ─── لیست مراحل ─────────────────────────────────────────────── */
+.sca-step-list { display: flex; flex-direction: column; gap: .5rem; }
+
+.sca-step-item {
+  display:       flex;
+  align-items:   center;
+  gap:           .6rem;
+  padding:       .75rem 1rem;
+  border:        1.5px solid var(--sca-border);
+  border-radius: var(--sca-radius-sm);
+  background:    var(--sca-surface);
+  cursor:        pointer;
+  transition:    all var(--sca-transition);
+  user-select:   none;
+}
+.sca-step-item:hover     { border-color: var(--sca-primary); background: var(--sca-primary-light); }
+.sca-step-item--active   { border-color: var(--sca-primary); background: var(--sca-primary-light); }
+.sca-step-item--inactive { opacity: .55; }
+
+.sca-step-item__drag {
+  color:   var(--sca-text-muted);
+  cursor:  grab;
+  flex-shrink: 0;
+}
+.sca-step-item__drag:active { cursor: grabbing; }
+.sca-step-item__drag svg { width: 16px; height: 16px; }
+
+.sca-step-item__num {
+  width: 26px; height: 26px; border-radius: 50%;
+  background: var(--sca-primary); color: #fff;
+  font-size: .75rem; font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.sca-step-item__title { flex: 1; font-size: .9rem; font-weight: 500; }
+.sca-step-item__type  { font-size: .72rem; color: var(--sca-text-muted); background: var(--sca-surface-2); padding: .15rem .5rem; border-radius: 20px; border: 1px solid var(--sca-border); }
+.sca-step-item__del   { color: var(--sca-text-muted); transition: color var(--sca-transition); flex-shrink: 0; background: none; border: none; cursor: pointer; padding: .2rem; }
+.sca-step-item__del:hover { color: var(--sca-danger); }
+.sca-step-item__del svg { width: 15px; height: 15px; }
+
+/* ─── پنل ویرایش مرحله ───────────────────────────────────────── */
+.sca-step-panel { display: none; }
+.sca-step-panel--visible { display: block; }
+
+/* ─── فرم‌ها ─────────────────────────────────────────────────── */
+.sca-form { display: grid; gap: .9rem; }
+.sca-field { display: flex; flex-direction: column; gap: .3rem; }
+.sca-field label { font-size: .825rem; font-weight: 600; color: var(--sca-text); }
+.sca-field input[type="text"],
+.sca-field input[type="number"],
+.sca-field input[type="color"],
+.sca-field textarea,
+.sca-field select {
+  padding:       .55rem .85rem;
+  border:        1.5px solid var(--sca-border);
+  border-radius: var(--sca-radius-sm);
+  font-family:   var(--sca-font);
+  font-size:     .9rem;
+  color:         var(--sca-text);
+  background:    var(--sca-surface-2);
+  transition:    border-color var(--sca-transition), box-shadow var(--sca-transition);
+  outline:       none;
+  width:         100%;
+}
+.sca-field input:focus,
+.sca-field textarea:focus,
+.sca-field select:focus {
+  border-color: var(--sca-primary);
+  box-shadow:   0 0 0 3px var(--sca-primary-light);
+}
+.sca-field textarea { resize: vertical; min-height: 80px; }
+.sca-field input[type="color"] { padding: .3rem .4rem; height: 42px; cursor: pointer; }
+
+.sca-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: .75rem; }
+@media (max-width: 600px) { .sca-form-row { grid-template-columns: 1fr; } }
+
+.sca-toggle { display: flex; align-items: center; gap: .6rem; cursor: pointer; }
+.sca-toggle input { width: 0; height: 0; opacity: 0; position: absolute; }
+.sca-toggle__track {
+  width: 40px; height: 22px; border-radius: 11px;
+  background: var(--sca-border); transition: background var(--sca-transition);
+  position: relative; flex-shrink: 0;
+}
+.sca-toggle__track::after {
+  content: ''; position: absolute; top: 3px; right: 3px;
+  width: 16px; height: 16px; border-radius: 50%;
+  background: #fff; transition: transform var(--sca-transition);
+  box-shadow: 0 1px 3px rgba(0,0,0,.2);
+}
+.sca-toggle input:checked + .sca-toggle__track { background: var(--sca-primary); }
+.sca-toggle input:checked + .sca-toggle__track::after { transform: translateX(-18px); }
+.sca-toggle__label { font-size: .875rem; color: var(--sca-text); }
+
+/* ─── لیست گزینه‌ها در پنل ───────────────────────────────────── */
+.sca-options-list { display: flex; flex-direction: column; gap: .5rem; margin-bottom: .75rem; }
+
+.sca-option-item {
+  display:       flex;
+  align-items:   center;
+  gap:           .6rem;
+  padding:       .6rem .85rem;
+  border:        1px solid var(--sca-border);
+  border-radius: var(--sca-radius-sm);
+  background:    var(--sca-surface-2);
+  transition:    border-color var(--sca-transition);
+}
+.sca-option-item:hover { border-color: var(--sca-primary); }
+.sca-option-item__label { flex: 1; font-size: .875rem; font-weight: 500; }
+.sca-option-item__price { font-size: .8rem; color: var(--sca-accent); font-weight: 600; }
+.sca-option-item__actions { display: flex; gap: .3rem; }
+.sca-option-item__btn {
+  width: 28px; height: 28px; border-radius: var(--sca-radius-sm);
+  border: none; cursor: pointer; display: flex; align-items: center; justify-content: center;
+  transition: all var(--sca-transition); background: transparent; color: var(--sca-text-muted);
+}
+.sca-option-item__btn:hover { background: var(--sca-primary-light); color: var(--sca-primary); }
+.sca-option-item__btn--del:hover { background: var(--sca-danger-light); color: var(--sca-danger); }
+.sca-option-item__btn svg { width: 14px; height: 14px; }
+
+/* ─── Inline فرم افزودن گزینه ────────────────────────────────── */
+.sca-add-option-form {
+  display:       grid;
+  grid-template-columns: 1fr auto auto auto;
+  gap:           .5rem;
+  align-items:   end;
+  padding:       .75rem;
+  background:    var(--sca-surface-2);
+  border:        1px dashed var(--sca-border);
+  border-radius: var(--sca-radius-sm);
+}
+@media (max-width: 600px) {
+  .sca-add-option-form { grid-template-columns: 1fr 1fr; }
+}
+
+/* ─── جدول لیدها ─────────────────────────────────────────────── */
+.sca-table-wrap { overflow-x: auto; }
+.sca-table {
+  width:           100%;
+  border-collapse: collapse;
+  font-size:       .875rem;
+}
+.sca-table th {
+  background:    var(--sca-surface-2);
+  padding:       .7rem 1rem;
+  text-align:    right;
+  font-weight:   600;
+  color:         var(--sca-text-muted);
+  border-bottom: 2px solid var(--sca-border);
+  white-space:   nowrap;
+}
+.sca-table td {
+  padding:       .7rem 1rem;
+  border-bottom: 1px solid var(--sca-border);
+  vertical-align: middle;
+}
+.sca-table tbody tr { transition: background var(--sca-transition); cursor: pointer; }
+.sca-table tbody tr:hover { background: var(--sca-primary-light); }
+
+/* ─── Badge وضعیت ────────────────────────────────────────────── */
+.sca-badge {
+  display:       inline-flex;
+  align-items:   center;
+  padding:       .2rem .6rem;
+  border-radius: 20px;
+  font-size:     .75rem;
+  font-weight:   600;
+  white-space:   nowrap;
+}
+.sca-badge--new       { background: var(--sca-primary-light); color: var(--sca-primary-dark); }
+.sca-badge--contacted { background: var(--sca-warning-light); color: var(--sca-warning); }
+.sca-badge--closed    { background: var(--sca-accent-light);  color: var(--sca-accent); }
+
+/* ─── Filters ────────────────────────────────────────────────── */
+.sca-filters {
+  display:     flex;
+  gap:         .5rem;
+  flex-wrap:   wrap;
+  margin-bottom: 1rem;
+}
+.sca-filter-btn {
+  padding:       .4rem .9rem;
+  border-radius: 20px;
+  border:        1.5px solid var(--sca-border);
+  background:    var(--sca-surface);
+  font-family:   var(--sca-font);
+  font-size:     .825rem;
+  font-weight:   500;
+  cursor:        pointer;
+  transition:    all var(--sca-transition);
+  color:         var(--sca-text-muted);
+}
+.sca-filter-btn:hover,
+.sca-filter-btn--active { background: var(--sca-primary); border-color: var(--sca-primary); color: #fff; }
+
+/* ─── Modal ──────────────────────────────────────────────────── */
+.sca-modal-overlay {
+  position:   fixed; inset: 0; z-index: 99999;
+  background: rgba(15,23,42,.5);
+  display:    flex; align-items: center; justify-content: center;
+  padding:    1rem;
+  animation:  sca-fade-in .18s ease;
+}
+.sca-modal {
+  background:    var(--sca-surface);
+  border-radius: var(--sca-radius);
+  box-shadow:    0 20px 60px rgba(0,0,0,.2);
+  width:         100%;
+  max-width:     540px;
+  max-height:    90vh;
+  overflow-y:    auto;
+  animation:     sca-slide-up .22s ease;
+  direction:     rtl;
+}
+.sca-modal__head {
+  padding:       1rem 1.25rem;
+  border-bottom: 1px solid var(--sca-border);
+  display:       flex;
+  align-items:   center;
+  justify-content:space-between;
+  position:      sticky;
+  top:           0;
+  background:    var(--sca-surface);
+  z-index:       1;
+}
+.sca-modal__head h3 { font-size: 1rem; font-weight: 600; margin: 0; }
+.sca-modal__close {
+  background: none; border: none; cursor: pointer;
+  color: var(--sca-text-muted); padding: .25rem; border-radius: var(--sca-radius-sm);
+  transition: all var(--sca-transition);
+}
+.sca-modal__close:hover { background: var(--sca-danger-light); color: var(--sca-danger); }
+.sca-modal__close svg { width: 18px; height: 18px; display: block; }
+.sca-modal__body { padding: 1.25rem; }
+
+/* ─── جزئیات لید در modal ────────────────────────────────────── */
+.sca-lead-detail { display: grid; gap: .75rem; }
+.sca-lead-row { display: flex; gap: .5rem; font-size: .9rem; }
+.sca-lead-row__key { font-weight: 600; color: var(--sca-text-muted); min-width: 100px; flex-shrink: 0; }
+.sca-lead-row__val { color: var(--sca-text); }
+.sca-lead-selections { display: flex; flex-direction: column; gap: .35rem; margin-top: .25rem; }
+.sca-lead-sel-item { font-size: .825rem; color: var(--sca-text-muted); padding: .3rem .6rem; background: var(--sca-surface-2); border-radius: var(--sca-radius-sm); }
+.sca-lead-sel-step { font-weight: 600; color: var(--sca-text); margin-left: .35rem; }
+
+/* ─── Toast ──────────────────────────────────────────────────── */
+.sca-toast {
+  position:      fixed;
+  bottom:        1.5rem;
+  left:          1.5rem;
+  z-index:       999999;
+  background:    var(--sca-text);
+  color:         #fff;
+  padding:       .7rem 1.1rem;
+  border-radius: var(--sca-radius-sm);
+  font-size:     .875rem;
+  font-family:   var(--sca-font);
+  box-shadow:    0 4px 20px rgba(0,0,0,.2);
+  animation:     sca-slide-up .22s ease;
+  direction:     rtl;
+}
+.sca-toast--success { background: var(--sca-accent); }
+.sca-toast--error   { background: var(--sca-danger); }
+
+/* ─── Loader ─────────────────────────────────────────────────── */
+.sca-loader {
+  display:     flex;
+  align-items: center;
+  gap:         .5rem;
+  color:       var(--sca-text-muted);
+  font-size:   .875rem;
+  padding:     1.5rem;
+  justify-content: center;
+}
+.sca-spinner {
+  width: 18px; height: 18px; border-radius: 50%;
+  border: 2px solid var(--sca-border);
+  border-top-color: var(--sca-primary);
+  animation: sca-spin .7s linear infinite;
+}
+
+/* ─── Empty state ────────────────────────────────────────────── */
+.sca-empty {
+  text-align: center; padding: 3rem 1rem;
+  color: var(--sca-text-muted); font-size: .9rem;
+}
+.sca-empty svg { width: 48px; height: 48px; margin: 0 auto .75rem; opacity: .3; display: block; }
+
+/* ─── Pagination ─────────────────────────────────────────────── */
+.sca-pagination {
+  display: flex; align-items: center; justify-content: center;
+  gap: .4rem; margin-top: 1rem; flex-wrap: wrap;
+}
+.sca-page-btn {
+  width: 34px; height: 34px; border-radius: var(--sca-radius-sm);
+  border: 1px solid var(--sca-border); background: var(--sca-surface);
+  font-family: var(--sca-font); font-size: .825rem; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: all var(--sca-transition); color: var(--sca-text);
+}
+.sca-page-btn:hover,
+.sca-page-btn--active { background: var(--sca-primary); border-color: var(--sca-primary); color: #fff; }
+
+/* ─── انیمیشن‌ها ─────────────────────────────────────────────── */
+@keyframes sca-fade-in  { from { opacity: 0; } to { opacity: 1; } }
+@keyframes sca-slide-up { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes sca-spin     { to { transform: rotate(360deg); } }
+
+@media (prefers-reduced-motion: reduce) {
+  #sc-admin-wrap * { transition: none !important; animation: none !important; }
+}
